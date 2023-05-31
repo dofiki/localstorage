@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--favicon-->
+    <link rel="icon" type="image/x-icon" href="fav.png">
+    <title>localstorage</title>
+</head>
+<body>
+
+<div class="container">
+    <input type="text" placeholder="enter something and reload">
+    <h2></h2>
+</div>
+
+<!--CSS-->
+<style>
+    *{
+    margin:0;
+}
+    body{
+    display: flex;
+    justify-content: center;
+    margin-top: 18rem;
+    background-color: bisque;
+}
+
+    h2{
+    margin-top: 1rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    width: 500px;
+    height: 65px;
+    overflow: auto;
+ 
+}
+
+    input{
+    height: 2rem;
+    background-color: white;
+    padding-left: 10px;
+    color: black;
+    border-radius: 15px;
+    width: 15rem;
+    margin-left: 12rem;
+}
+
+    input[type="text"] {
+    font-size:1.2rem;
+    color: rgb(148, 0, 0);
+}
+
+    input::placeholder{
+    font-size: 0.9rem;
+    color: rgb(228, 131, 131);
+}
+
+</style>
+
+<!--JS-->
+    <script>
+        const input = document.querySelector("input"); //selecting input
+        const h2 = document.querySelector("h2"); //selecting h2
+
+        h2.innerText = localStorage.getItem("value_"); //if smthing is already stored in
+                                              // local storage it will be displayed
+
+        input.addEventListener("keyup", display); //when key is pressed and left, display function will be executed
+
+        function display(){
+            localStorage.setItem('value_', input.value); //storing the input.value, here vlaue_ is key name
+             h2.innerText = localStorage.getItem("value_"); //getting the value_ from local storage and inserted into h2
+        }
+    </script>
+
+</body>
+
+</html>
